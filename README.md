@@ -1,6 +1,6 @@
 # Valo4Noobs
 
-A static HTML/CSS site for valorant education.
+A static HTML/CSS/JS site for valorant education.
 Visit it here
 
 ## Features
