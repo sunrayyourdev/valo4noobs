@@ -1,0 +1,108 @@
+/* UNIVERSAL */
+body {
+    font-family: Verdana, Tahoma, sans-serif;
+    background-color: #3C3A4C;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, p, li, label, span {
+    color: white;
+}
+
+header {
+    background-color: #F94555;  
+}
+
+.logo_small {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.nav_link {
+    width: fit-content;
+    text-decoration: none;
+    color: #3C3A4C;
+}
+
+header span {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header nav {
+    max-width: fit-content;
+    padding: 18px 0;
+    margin: 0 auto;
+}
+
+
+.nav_link:hover{
+    color: lightgrey;
+}
+
+footer {
+    background-color: #201F29;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+}
+
+footer p {
+    width: fit-content;
+    /* text-align: center; */
+    padding: 20px;
+}
+
+footer div{
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+main a, footer a{
+    text-decoration: none;
+    color: rgb(117, 0, 251);
+}
+
+main a:hover, footer a:hover {
+    color: white;
+}
+
+main {
+    margin-bottom: 10%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+}
+
+tr, td, th {
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ffffff;
+}
+
+.team_logo img{
+    height: auto;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.team_logo {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+}
+
+.team_name {
+    text-align: center;
+    width: 100px;
+}

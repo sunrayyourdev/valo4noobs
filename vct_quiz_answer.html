@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Valo4Noobs</title>
+    <link rel="stylesheet" href="v4n.css">
+    <style>
+        h1, h2, p {
+            text-align: center;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+        footer div{
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        function title(string_input) {
+            let string_array = string_input.split(" ");
+            for (let i = 0; i < string_array.length; i++) {
+                string_array[i] = string_array[i].slice(0, 1).toUpperCase() + string_array[i].slice(1);
+            }
+            string_output = string_array.join(" ");
+            return string_output;
+        }
+
+        function similar_arrays(array1, array2){
+            for (let i = 0; i < array2.length; i++) {
+                if (!(array1.includes(array2[i]))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function calculate_score(answer_key, answer_input) {
+            let score = 0;
+            for (let question in answer_key) {
+                if (answer_key[question].type == "multi_answer") {
+                    let key_array = answer_key[question].answer.toLowerCase().split(", ")
+                    let saved_input = answer_input[question].answer.split("%2C+");
+                    let input_array = answer_input[question].answer.toLowerCase().split("%2c+");    
+                    if (similar_arrays(key_array, input_array)) {
+                        answer_input[question].result = "Correct";
+                        score++;
+                    }
+                    answer_input[question].answer = saved_input.join(", ");
+                } else if (answer_key[question].type == "multi_choice") {
+                    if (answer_input[question].answer == answer_key[question].choice) {
+                        answer_input[question].result = "Correct";
+                        score++;
+                    }
+                } else {
+                    if (answer_input[question].answer.toLowerCase() == answer_key[question].answer.toLowerCase()) {
+                        answer_input[question].result = "Correct";
+                        score++;
+                    }
+                }
+            }
+            return score;
+        }
+
+        function reveal_answer(question) {
+            let current_question = answer_input[question];
+            let correct = `Your answer: ${current_question.answer}<br>Result: <span class="correct">${current_question.result}</span>`;
+            let wrong = `Your answer: ${current_question.answer}<br>Result: <span class="wrong">${current_question.result}</span>`;
+            if (current_question.result == "Correct") {
+                return correct;
+            } else {
+                if (answer_key[question].type == "multi_choice"){
+                    return wrong + `<br>Correct answer: <span class="correct">${answer_key[question].choice}&nbsp(${answer_key[question].answer})</span>`
+                }
+                return wrong + `<br>Correct answer: <span class="correct">${answer_key[question].answer}</span>`
+            }
+        }
+
+        let form_data = location.search;
+        form_data = (form_data.substring(1, form_data.length)).split("&")
+        console.log(form_data);
+        let answer_key = {
+            "q1": {type: "multi_answer", answer: "Tenz, Shahzam, zombs, Sick, dapr"},
+            "q2": {type: "multi_choice", choice: "4", answer: "Zeta Division"},
+            "q3": {type: "multi_choice", choice: "3", answer: "Chronicle"},
+            "q4": {type: "single_answer", answer: "Tenz"},
+            "q5": {type: "single_answer", answer: "Acend"}
+        }
+        let answer_input = {
+            "q1": {answer: "", result: "Wrong"},
+            "q2": {answer: "", result: "Wrong"},
+            "q3": {answer: "", result: "Wrong"},
+            "q4": {answer: "", result: "Wrong"},
+            "q5": {answer: "", result: "Wrong"}
+        }
+        for (let i = 0; i < form_data.length; i++) {
+            let current_question = form_data[i].slice(0, 2);
+            let current_answer = form_data[i].slice(3);
+            answer_input[current_question].answer = current_answer;
+        }
+        console.log(answer_input);
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <img class="logo_small" src="media/images/v4n_logo1.png" alt="V4N Logo Small">
+            <span><a href="about.html" class="nav_link">ABOUT</a></span>
+            <span><a href="esports.html" class="nav_link">ESPORTS</a></span>
+            <span><a href="home.html" class="nav_link">HOME</a></span>
+            <span><a href="guides.html" class="nav_link">GUIDES</a></span>
+            <span><a href="games.html" class="nav_link">GAMES</a></span>
+        </nav>
+    </header>
+    <main>
+        <h1>VCT Knowledge Quiz Result</h1>
+        <h2>You scored <script>document.write(calculate_score(answer_key, answer_input))</script>/5</h2>
+        <p>1. Name the players on the Sentinels roster which won Masters Reykjavic 2021.</p>
+        <p><script>document.write(reveal_answer("q1"))</script></p>
+        <p>2. Which team went on a cinderella run and placed 3rd at Masters Reykjavic 2022?</p>
+        <p><script>document.write(reveal_answer("q2"))</script></p>
+        <p>3. Which player has won the most international events?</p>
+        <p><script>document.write(reveal_answer("q3"))</script></p>
+        <p>4. This player holds the record for highest ACS performance of any player at an international event. Who is he?</p>
+        <p><script>document.write(reveal_answer("q4"))</script></p>
+        <p>5. Which team won Masters 1 EMEA 2021?</p>
+        <p><script>document.write(reveal_answer("q5"))</script></p>
+    </main>
+    <footer>
+        <div>
+            <p>Valo4Noobs&trade;<br>Created by Onquit Jake<br>Follow me on 
+            <a href="https://twitter.com/JackOnquit87852" target="_blank">Twitter</a>, 
+            <a href="https://www.instagram.com/valo4noobs/" target="_blank">Instagram</a> and 
+            <a href="https://www.youtube.com/channel/UCdebluTaUmt8_HD_34ltMrw" target="_blank">YouTube</a>.</p> 
+        </div>
+    </footer>
+</body>
+</html>

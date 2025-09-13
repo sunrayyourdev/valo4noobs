@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Valo4Noobs</title>
+    <link rel="stylesheet" href="v4n.css">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        #vct_quiz_submit {
+            width: 60px;
+            text-align: center;
+            margin-left: 47%;
+            margin-right: 0;
+        }
+        .submit {
+            display: block;
+        }
+
+        main {
+            margin-bottom: 10%;
+        }
+
+        form {
+            width: 90%;
+            margin: 0 auto;
+        }
+        footer div{
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img class="logo_small" src="media/images/v4n_logo1.png" alt="V4N Logo Small">
+            <span><a href="about.html" class="nav_link">ABOUT</a></span>
+            <span><a href="esports.html" class="nav_link">ESPORTS</a></span>
+            <span><a href="home.html" class="nav_link">HOME</a></span>
+            <span><a href="guides.html" class="nav_link">GUIDES</a></span>
+            <span><a href="games.html" class="nav_link">GAMES</a></span>
+        </nav>
+    </header>
+    <main>
+        <h1>VCT Knowledge Quiz</h1>
+        <form action="vct_quiz_answer.html" target="_blank">
+            <fieldset>
+                <label for="q1">1. Name the players on the Sentinels roster which won Masters Reykjavic 2021.</label>
+                <br><input type="text" id="q1" name="q1" placeholder="e.g. yay, marved, FNS..." size="40" required>
+            </fieldset>
+            <fieldset>
+                <span>2. Which team went on a cinderella run and placed 3rd at Masters Reykjavic 2022?</span>
+                <br><input type="radio" name="q2" value="1" id="sen" required><label for="sen">1. Sentinels</label>
+                <br><input type="radio" name="q2" value="2" id="prx" required><label for="prx">2. Paper Rex</label>
+                <br><input type="radio" name="q2" value="3" id="optc" required><label for="optc">3. Optic Gaming</label>
+                <br><input type="radio" name="q2" value="4" id="zeta" required><label for="zeta">4. Zeta Division</label>
+            </fieldset>
+            <fieldset>
+                <span>3. Which player has won the most international events?</span>
+                <br><input type="radio" name="q3" value="1" id="nats" required><label for="nats">1. nAts</label>
+                <br><input type="radio" name="q3" value="2" id="derke" required><label for="derke">2. Derke</label>
+                <br><input type="radio" name="q3" value="3" id="chronicle" required><label for="chronicle">3. Chronicle</label>
+                <br><input type="radio" name="q3" value="4" id="yay" required><label for="yay">4. yay</label>
+            </fieldset>
+            <fieldset>
+                <label for="q4">4. This player holds the record for highest ACS performance of any player at an international event. Who is he?</label>
+                <input type="text" id="q4" name="q4" size="10" required>
+            </fieldset>
+            <fieldset>
+                <label for="q5">5. Which team won Masters 1 EMEA 2021?</label>
+                <input type="text" id="q5" name="q5" size="10" required>
+            </fieldset>
+            <div class="submit">
+                <input type="submit" id="vct_quiz_submit">
+            </div>
+        </form>
+    </main>
+    <footer>
+        <div>
+            <p>Valo4Noobs&trade;<br>Created by Onquit Jake<br>Follow me on 
+            <a href="https://twitter.com/JackOnquit87852" target="_blank">Twitter</a>, 
+            <a href="https://www.instagram.com/valo4noobs/" target="_blank">Instagram</a> and 
+            <a href="https://www.youtube.com/channel/UCdebluTaUmt8_HD_34ltMrw" target="_blank">YouTube</a>.</p> 
+        </div>
+    </footer>
+</body>
+</html>
